@@ -1,5 +1,7 @@
 package study;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,5 +27,12 @@ public class StringTest {
     void substring(){
         String word = "(1,2)".substring(1, 4);
         assertThat(word).isEqualTo("1,2");
+    }
+
+    @Test
+    @DisplayName("charAt 테스트")
+    void charAt(){
+        assertThat("abc".charAt(0)).isEqualTo('a');
+        Assertions.assertThrows(StringIndexOutOfBoundsException.class, () -> "abc".charAt(123123));
     }
 }
