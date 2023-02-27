@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,5 +36,12 @@ public class SetTest {
     @ValueSource(ints = {1,2,3})
     void contains(int input){
         assertThat(numbers.contains(input)).isTrue();
+    }
+
+    @DisplayName("Set contains 테스트 (입력값, 결과값)")
+    @ParameterizedTest
+    @CsvSource({"1,true","2,true","3,true","4,false","5,false"})
+    void notContains(int input, boolean result){
+        assertThat(numbers.contains(input)).isEqualTo(result);
     }
 }
