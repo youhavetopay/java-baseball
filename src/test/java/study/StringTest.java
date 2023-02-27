@@ -20,4 +20,10 @@ public class StringTest {
         assertThat(secondWords).containsExactly("1");
 
     }
+
+    @Test
+    void substring(){
+        String word = "(1,2)".substring(1, 4);
+        assertThat(word).isEqualTo("1,2");
+    }
 }
