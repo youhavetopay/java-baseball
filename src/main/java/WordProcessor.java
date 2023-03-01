@@ -32,19 +32,19 @@ public class WordProcessor {
         return operators;
     }
 
-    void addIntegerWord(List<Integer> numbers, String word){
+    private void addIntegerWord(List<Integer> numbers, String word){
         if (checkNumberFormat(word)) {
             numbers.add(Integer.parseInt(word));
         }
     }
 
-    void addOperatorWord(List<String> operators, String word){
+    private void addOperatorWord(List<String> operators, String word){
         if (checkOperatorFormat(word)){
             operators.add(word);
         }
     }
 
-    boolean checkNumberFormat(String word){
+    private boolean checkNumberFormat(String word){
         try{
             Integer.parseInt(word);
         } catch (NumberFormatException numberFormatException){
@@ -53,7 +53,7 @@ public class WordProcessor {
         return true;
     }
 
-    boolean checkOperatorFormat(String word){
+    private boolean checkOperatorFormat(String word){
         List<String> operatorFormat = new ArrayList<>(Arrays.asList("+", "-", "*", "/"));
         return operatorFormat.contains(word);
     }
