@@ -24,4 +24,12 @@ public class WordProcessorTest {
         assertThat(processor.inputString()).isEqualTo(input);
     }
 
+    @Test
+    @DisplayName("문자열 숫자 분리 테스트")
+    void splitStringByNumber(){
+        String input = "2 + 3 * 4 / 2";
+        List<Integer> nums = processor.splitStringByNumber(input);
+        assertThat(nums).containsExactly(2, 3, 4, 2);
+    }
+
 }
