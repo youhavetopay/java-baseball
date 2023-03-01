@@ -32,4 +32,12 @@ public class WordProcessorTest {
         assertThat(nums).containsExactly(2, 3, 4, 2);
     }
 
+    @Test
+    @DisplayName("문자열 연산자 분리 테스트")
+    void splitStringByOperator(){
+        String input = "2 + 3 * 4 / 2";
+        List<String> operators = processor.splitStringByOperator(input);
+        assertThat(operators).containsExactly("+", "*", "/");
+    }
+
 }
