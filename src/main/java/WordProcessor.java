@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,9 +21,26 @@ public class WordProcessor {
         return numbers;
     }
 
+    List<String> splitStringByOperator(String input){
+        String[] splitWords = input.split(" ");
+        List<String> operators = new ArrayList<>();
+
+        for(String word : splitWords){
+            addOperatorWord(operators, word);
+        }
+
+        return operators;
+    }
+
     void addIntegerWord(List<Integer> numbers, String word){
         if (checkNumberFormat(word)) {
             numbers.add(Integer.parseInt(word));
+        }
+    }
+
+    void addOperatorWord(List<String> operators, String word){
+        if (checkOperatorFormat(word)){
+            operators.add(word);
         }
     }
 
@@ -33,6 +51,11 @@ public class WordProcessor {
             return false;
         }
         return true;
+    }
+
+    boolean checkOperatorFormat(String word){
+        List<String> operatorFormat = new ArrayList<>(Arrays.asList("+", "-", "*", "/"));
+        return operatorFormat.contains(word);
     }
 
 }
